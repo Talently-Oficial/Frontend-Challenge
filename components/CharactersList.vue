@@ -18,11 +18,17 @@
               <td class="p-3 font-bold">
                 {{ character.name }}
               </td>
+              <td class="p-3 hidden sm:table-cell">
+                <LyStatusCheap :text="character.status" />
+              </td>
               <td class="p-3">
                 {{ character.species }}
               </td>
               <td class="p-3 hidden sm:table-cell">
-                <LyStatusCheap :text="character.status" />
+                {{ character.gender }}
+              </td>
+              <td class="p-3 hidden sm:table-cell">
+                {{ character.created | formatdate }}
               </td>
               <td class="p-3 font-semibold text-blue-500">
                 <a :href="character.url" target="_blank">
@@ -40,13 +46,44 @@
 <script>
 export default {
   props: {
-    headers: {
-      type: Array,
-      required: true
-    },
+    // TODO document this characters property
     characters: {
       type: Array,
       required: true
+    }
+  },
+  data () {
+    return {
+      headers: [
+        {
+          title: 'Image',
+          customClass: ''
+        },
+        {
+          title: 'Name',
+          customClass: ''
+        },
+        {
+          title: 'Status',
+          customClass: 'hidden sm:table-cell'
+        },
+        {
+          title: 'Specie',
+          customClass: ''
+        },
+        {
+          title: 'Gender',
+          customClass: 'hidden sm:table-cell'
+        },
+        {
+          title: 'Created',
+          customClass: 'hidden sm:table-cell'
+        },
+        {
+          title: 'Details',
+          customClass: 'invisible'
+        }
+      ]
     }
   }
 }
