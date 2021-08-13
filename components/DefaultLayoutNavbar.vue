@@ -13,10 +13,10 @@
     </ul>
 
     <div class="flex items-center">
-      <h1 class="hidden md:block pl-8 lg:pl-0 text-gray-700">
+      <h1 class="hidden sm:block pl-8 lg:pl-0 text-gray-700">
         Add a new character
       </h1>
-      <div class="md:hidden">
+      <div class="sm:hidden">
         <LySelect :options="routes" :value="routes[0]" @input="goToRoute" />
       </div>
     </div>
@@ -69,7 +69,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

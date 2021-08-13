@@ -1,8 +1,8 @@
 <template>
-  <div class="h-screen w-screen flex bg-gray-200">
+  <div class="h-screen w-screen flex bg-gray-100">
     <!-- container -->
     <DefaultLayoutSidebar />
-    <div class="flex-1 flex flex-col">
+    <div class="flex-1 flex flex-col max-h-scren">
       <DefaultLayoutNavbar />
       <Nuxt />
     </div>

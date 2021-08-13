@@ -1,11 +1,11 @@
 <template>
-  <div class="LySelect cursor-pointer">
+  <div class="LySelect m-auto cursor-pointer select-none">
     <!-- select input -->
-    <div class="p-2 bg-gray-50" @click="toggleSelecting">
+    <div class="p-2 bg-white" @click="toggleSelecting">
       <span class="LySelect__selected-value">{{ localValue.text }}</span>
     </div>
     <!-- select options -->
-    <ul v-if="selecting" class="LySelect__options-list bg-gray-50 border">
+    <ul v-if="selecting" class="LySelect__options-list bg-white border">
       <li
         v-for="option in options"
         :key="`option-${option.text}-${option.value}`"
@@ -67,7 +67,7 @@ export default {
 
 <style>
 .LySelect {
-  max-height: 2rem;
+  max-height: 2.5rem;
 }
 
 .LySelect__selected-value::after {

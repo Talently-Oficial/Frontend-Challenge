@@ -1,7 +1,7 @@
 <template>
   <!-- component -->
   <aside
-    class="hidden md:flex flex-col items-center justify-center bg-white text-gray-700 shadow h-full border"
+    class="hidden sm:flex flex-col items-center justify-center bg-white text-gray-700 shadow h-full border"
   >
     <!-- Side Nav Bar-->
     <ul>
