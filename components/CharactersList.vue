@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center bg-transparent">
+  <div class="flex items-center justify-center bg-transparent characters-list">
     <div class="col-span-12">
       <div class="overflow-auto lg:overflow-visible">
         <table class="table text-gray-400 border-separate space-y-6 text-sm">
@@ -44,12 +44,14 @@
 </template>
 
 <script>
+import { validateCharacters } from '@/utils/propCustomValidators'
+
 export default {
   props: {
-    // TODO document this characters property
     characters: {
       type: Array,
-      required: true
+      required: true,
+      validator: validateCharacters
     }
   },
   data () {
@@ -68,7 +70,7 @@ export default {
           customClass: 'hidden sm:table-cell'
         },
         {
-          title: 'Specie',
+          title: 'Species',
           customClass: ''
         },
         {
@@ -90,25 +92,21 @@ export default {
 </script>
 
 <style>
-.table {
+.characters-list .table {
   border-spacing: 0 15px;
 }
 
-i {
-  font-size: 1rem !important;
+.characters-list .table tr {
+  border-radius: 8px;
 }
 
-.table tr {
-  border-radius: 20px;
-}
-
-tr td:nth-child(n+5),
-tr th:nth-child(n+5) {
+.characters-list tr td:last-child,
+.characters-list tr th:last-child {
   border-radius: 0 .625rem .625rem 0;
 }
 
-tr td:nth-child(1),
-tr th:nth-child(1) {
+.characters-list tr td:first-child,
+.characters-list tr th:first-child {
   border-radius: .625rem 0 0 .625rem;
 }
 </style>
