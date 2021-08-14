@@ -12,7 +12,7 @@ export default {
       type: Object,
       default: () => ({
         Alive: 'bg-green-400',
-        Death: 'bg-red-400',
+        Dead: 'bg-red-400',
         unknown: 'bg-gray-400'
       })
     },
