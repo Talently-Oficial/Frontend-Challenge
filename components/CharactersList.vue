@@ -1,9 +1,11 @@
 <template>
-  <div class="flex items-center justify-center bg-transparent characters-list">
-    <div class="col-span-12">
-      <div class="overflow-auto lg:overflow-visible">
-        <table class="table text-gray-400 border-separate space-y-6 text-sm">
-          <thead>
+  <div class="flex flex-col items-center justify-center bg-transparent characters-list">
+    <CharactersListHeader title="List of Characters" :characters-count="charactersCount" />
+    <LyFloatingActionButton inner-text="+" @click="goToAddCharacter" />
+    <div class="col-span-12 px-6 sm:px-auto">
+      <div class="lg:overflow-visible pb-20 sm:pb-0">
+        <table class="table text-gray-400 border-separate space-y-6 text-sm relative">
+          <thead class="sticky bg-gray-100 top-12 sm:top-16 z-10">
             <tr>
               <th v-for="(header, index) in headers" :key="`th-${index}`" class="p-3" :class="header.customClass">
                 {{ header.title }}
@@ -44,16 +46,7 @@
 </template>
 
 <script>
-import { validateCharacters } from '@/utils/propCustomValidators'
-
 export default {
-  props: {
-    characters: {
-      type: Array,
-      required: true,
-      validator: validateCharacters
-    }
-  },
   data () {
     return {
       headers: [
@@ -63,7 +56,7 @@ export default {
         },
         {
           title: 'Name',
-          customClass: ''
+          customClass: 'text-left'
         },
         {
           title: 'Status',
@@ -82,10 +75,36 @@ export default {
           customClass: 'hidden sm:table-cell'
         },
         {
-          title: 'Details',
-          customClass: 'invisible'
+          title: '',
+          customClass: ''
         }
-      ]
+      ],
+      pagination: {},
+      characters: []
+    }
+  },
+  async fetch () {
+    const { data: { info, results } } = await this.$axios('/character')
+
+    this.pagination = info
+    this.characters = results
+  },
+  computed: {
+    charactersCount () {
+      return this.pagination.count || 0
+    }
+  },
+  watch: {
+    '$fetchState.pending': {
+      deep: true,
+      handler (newVal) {
+        this.$store.commit('setFetchPendingState', newVal)
+      }
+    }
+  },
+  methods: {
+    goToAddCharacter () {
+      this.$router.push({ name: 'add-character' })
     }
   }
 }
@@ -100,13 +119,15 @@ export default {
   border-radius: 8px;
 }
 
-.characters-list tr td:last-child,
-.characters-list tr th:last-child {
+.characters-list .table tr:first-child {
+  border-radius: 0px;
+}
+
+.characters-list tr td:last-child {
   border-radius: 0 .625rem .625rem 0;
 }
 
-.characters-list tr td:first-child,
-.characters-list tr th:first-child {
+.characters-list tr td:first-child {
   border-radius: .625rem 0 0 .625rem;
 }
 </style>
