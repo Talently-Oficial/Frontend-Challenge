@@ -5,29 +5,37 @@
   >
     <!-- Side Nav Bar-->
     <ul>
-      <li class="hover:bg-gray-100">
+      <li
+        v-for="{path, iconStroke} in pages"
+        :key="`sidebar-${path}`"
+        class="content-box border-b-4 border-transparent"
+        :class="{'border-blue-500 bg-gray-100': pageSelected === path}"
+      >
         <NuxtLink
-          to="/"
+          :to="path"
           class="h-16 px-6 flex flex justify-center items-center w-full focus:text-orange-500"
         >
-          <img src="@/assets/icons/list-icon.svg" width="24" height="24" alt="go to list of characters">
+          <LySvg :stroke="iconStroke" />
         </NuxtLink>
       </li>
-
-      <li class="hover:bg-gray-100">
-        <NuxtLink
-          to="add-character"
-          class="h-16 px-6 flex flex justify-center items-center w-full focus:text-orange-500"
-        >
-          <img src="@/assets/icons/add-document-icon.svg" width="24" height="24" alt="go to add character">
-        </NuxtLink>
-      </li>
+      <li />
     </ul>
   </aside>
 </template>
 
 <script>
 export default {
+  props: {
+    pages: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    pageSelected () {
+      return this.$route.path
+    }
+  }
 }
 </script>
 

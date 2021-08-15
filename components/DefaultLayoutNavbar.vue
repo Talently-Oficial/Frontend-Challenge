@@ -1,5 +1,5 @@
 <template>
-  <nav class="px-4 flex justify-between bg-white h-16 border-b-2">
+  <nav class="px-4 flex justify-between bg-white h-16 border-b-2 sticky">
     <!-- top bar left -->
     <ul class="flex items-center">
       <!-- add button -->
@@ -13,11 +13,8 @@
     </ul>
 
     <div class="flex items-center">
-      <h1 class="hidden sm:block pl-8 lg:pl-0 text-gray-700">
-        Add a new character
-      </h1>
-      <div class="sm:hidden">
-        <LySelect :options="routes" :value="routes[0]" @input="goToRoute" />
+      <div class="visible sm:invisible pl-8 py-5 lg:pl-0 text-gray-700">
+        <LySelect v-model="pageSelected" :options="pages" return-object />
       </div>
     </div>
 
@@ -47,24 +44,27 @@
 </template>
 
 <script>
+
 export default {
-  data () {
-    return {
-      routes: [
-        {
-          text: 'List of characters',
-          value: 'index'
-        },
-        {
-          text: 'Add a new character',
-          value: 'add-character'
-        }
-      ]
+  props: {
+    pages: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    pageSelected: {
+      get () {
+        return this.pages.find(({ path }) => path === this.$route.path)
+      },
+      set (page) {
+        this.goToPage(page)
+      }
     }
   },
   methods: {
-    goToRoute (route) {
-      this.$router.push({ name: route })
+    goToPage ({ path }) {
+      this.$router.push({ path })
     }
   }
 }

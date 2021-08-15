@@ -1,15 +1,11 @@
 <template>
-  <CharactersList :characters="characters" />
+  <div class="overflow-auto">
+    <CharactersList />
+  </div>
 </template>
 
 <script>
-import { characters } from '@/mocks/table'
-
 export default {
-  data () {
-    return {
-      characters
-    }
-  }
+  name: 'Index'
 }
 </script>
