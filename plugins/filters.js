@@ -20,3 +20,17 @@ function formatDate (rawDate) {
 }
 
 Vue.filter('formatdate', formatDate)
+
+/**
+* @param {String} rawDate date of any type accepted by Javascript Date API
+* @return {String} response format "MM/DD/YYYY"
+*/
+function numToString (number) {
+  if (!number) { return '0' }
+
+  const toString = number.toString()
+
+  return toString.split('').reverse().map((char, index) => index % 3 === 0 ? char + ' ' : char).reverse().join('')
+}
+
+Vue.filter('numToString', numToString)
