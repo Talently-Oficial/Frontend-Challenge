@@ -1,20 +1,10 @@
 <template>
-  <div class="LySelect m-auto cursor-pointer select-none">
-    <!-- select input -->
-    <div class="p-2 bg-white" @click="toggleSelecting">
-      <span class="LySelect__selected-value">{{ localValue.text }}</span>
-    </div>
-    <!-- select options -->
-    <ul v-if="selecting" class="LySelect__options-list bg-white border">
-      <li
-        v-for="option in options"
-        :key="`option-${option.text}-${option.value}`"
-        class="hover:bg-gray-200 p-1"
-        @click="changeSelectedValue(option)"
-      >
+  <div class="LySelect">
+    <select v-model="localValue" class="bg-white focus:outline-none border-0">
+      <option v-for="option in options" :key="`option-${option.text}-${option.value}`" class="hover:bg-gray-200 p-1" :value="option">
         {{ option.text }}
-      </li>
-    </ul>
+      </option>
+    </select>
   </div>
 </template>
 
@@ -49,17 +39,15 @@ export default {
       selecting: false
     }
   },
-  methods: {
-    toggleSelecting () {
-      this.selecting = !this.selecting
+  watch: {
+    value (newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.localValue = newValue
+      }
     },
-    changeSelectedValue (option) {
-      this.localValue = option
-
+    localValue (option) {
       const valueToBeReturned = this.returnObject ? option : option.value
       this.$emit('input', valueToBeReturned)
-
-      this.toggleSelecting()
     }
   }
 }
@@ -68,18 +56,5 @@ export default {
 <style>
 .LySelect {
   max-height: 2.5rem;
-}
-
-.LySelect__selected-value::after {
-  content: url("/icons/down-arrow.svg");
-  display: inline-block;
-  width: 0.8em;
-  height: 0.8em;
-  margin: auto;
-  margin-left: 0.5rem;
-}
-
-.LySelect__options-list {
-  position: relative;
 }
 </style>
