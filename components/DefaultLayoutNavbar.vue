@@ -14,7 +14,7 @@
 
     <div class="flex items-center">
       <div class="visible sm:invisible pl-8 py-5 lg:pl-0 text-gray-700">
-        <LySelect v-model="pageSelected" :options="pages" return-object />
+        <LyInputSelect v-model="pageSelected" :options="pages" classes="border-none shadow-none focus:border-none focus:ring-white" />
       </div>
     </div>
 
