@@ -15,7 +15,7 @@
           :to="path"
           class="h-16 px-6 flex flex justify-center items-center w-full focus:text-orange-500"
         >
-          <LySvg :stroke="iconStroke" />
+          <LySvg :stroke="iconStroke" class="text-blue-500" />
         </NuxtLink>
       </li>
       <li />
