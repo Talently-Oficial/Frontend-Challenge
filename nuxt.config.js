@@ -24,12 +24,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    // https://tailwindcss.com/docs/guides/nuxtjs
+    '~assets/css/tailwind.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~plugins/filters' },
-    '~plugins/tailwind-forms'
+    { src: '~plugins/filters' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,11 +44,23 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // https://github.com/nuxt-community/dayjs-module
+    '@nuxtjs/dayjs'
   ],
 
   axios: {
     baseURL: 'https://rickandmortyapi.com/api' // Used as fallback if no runtime config is provided
+  },
+
+  dayjs: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    defaultTimeZone: 'America/Miami',
+    plugins: [
+      'utc', // import 'dayjs/plugin/utc'
+      'timezone' // import 'dayjs/plugin/timezone'
+    ] // Your Day.js plugin
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
