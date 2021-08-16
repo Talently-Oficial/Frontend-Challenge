@@ -49,7 +49,7 @@ export default {
   computed: {
     localValue: {
       get () {
-        return this.value || this.options[0]
+        return this.value
       },
       set (option) {
         this.$emit('input', option)
