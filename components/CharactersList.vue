@@ -2,7 +2,7 @@
   <table class="table text-gray-400 border-separate space-y-6 text-sm relative">
     <thead class="sticky bg-gray-100 top-12 sm:top-16 z-10">
       <tr>
-        <th v-for="(header, index) in headers" :key="`th-${index}`" class="p-3" :class="header.customClass">
+        <th v-for="(header, index) in headers" :key="`th-${index}`" class="p-3 uppercase" :class="header.customClass">
           {{ header.title }}
         </th>
       </tr>

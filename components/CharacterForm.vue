@@ -1,7 +1,7 @@
 <template>
   <div class="CharacterForm">
-    <div class="mt-8">
-      <div class="grid grid-cols-1 gap-6">
+    <div class="mt-8 sm:mt-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
         <LyInputText v-model="form.name" label="Name" />
 
         <LyInputSelect
@@ -18,7 +18,7 @@
           :options="genders"
         />
 
-        <LyInputText v-model="form.url" label="URL" />
+        <LyInputText v-model="form.url" label="URL" class="md:col-span-2" />
 
         <LyButton inner-text="Create character" @click="sendForm" />
       </div>

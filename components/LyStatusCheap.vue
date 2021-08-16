@@ -7,7 +7,6 @@
 <script>
 export default {
   props: {
-    // TODO document this "colors" property
     colors: {
       type: Object,
       default: () => ({

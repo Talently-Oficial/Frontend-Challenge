@@ -1,6 +1,6 @@
 <template>
   <label class="LyInputSelect block">
-    <span v-if="label" class="text-gray-700">{{ label }}</span>
+    <span v-if="label" class="text-gray-700 uppercase">{{ label }}</span>
     <select
       v-model="localValue"
       class="block mt-1 w-full rounded-md border-gray-300 shadow-sm"
