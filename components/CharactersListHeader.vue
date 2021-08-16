@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row py-4 px-8 w-full sticky -top-1 sm:top-0 bg-gray-100 z-10">
+  <div class="flex flex-row py-4 px-8 w-full max-w-screen-md sticky -top-1 sm:top-0 bg-gray-100 z-10">
     <h1 class="text-2xl">
       List of characters
     </h1>
