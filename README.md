@@ -57,5 +57,5 @@ Estos puntos pueden sumar puntos pero no son obligatorios
 
 - Tiene una duración de máximo 5 días desde el momento que se le envía el reto.
 - Debera desplegar el proyecto en algún servicio de hosting gratuito como [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/) o [Render](https://www.render.com/).
-- Al finalizar el reto, enviar el repositorio a emmanuel.barturen@talently.tech con copia a cristian@talently.tech y
+- Al finalizar el reto, enviar el repositorio a emmanuel.barturen@talently.tech con copia a paula.anselmo@talently.tech y
   dilver@talently.tech con título "Reto Frontend - Talently 2023"
