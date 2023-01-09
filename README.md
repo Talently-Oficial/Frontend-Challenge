@@ -4,11 +4,11 @@ El reto tiene como objetivo validar sus habilidades de codificación y creativid
 
 Lo que evaluamos en el código:
 
-- Modularidad
-- Organización del código
-- Manejo y registro de excepciones
-- Programación asincrónica
-- Criterio de diseño
+- Conocimientos en vue 3.
+- Organización del código.
+- Manejo y registro de excepciones.
+- Programación asíncrona.
+- Criterio de diseño.
 
 ## Materiales
 
@@ -18,30 +18,29 @@ Lo que evaluamos en el código:
 
 ## Herramientas
 
-- Nuxt.js, Puede usar este mismo repositorio con la base que le ofrecemos.
-- Utilice un gestor de estado.
-- Axios ó Fetch queda a su preferencia.
-- Ayúdese del framework ó librería UI de su preferencia, En talently usamos tailwind pero si desea usar css puro o algún preprocesador lo valoraremos aún más.
+- [Nuxt 3](https://nuxt.com/), puede usar este mismo repositorio como base.
+- [Pinia](https://pinia.vuejs.org/), como gestor de estado.
+- [Tailwindcss](https://tailwindcss.com/), como framework de estilos.
 
 ## Desarrollo
 
-El miniproyecto tiene 3 vistas: lista de testimonios, formulario para agregar testimonio y detalle de testimonio.
-Siéntase en libertad de modificar las vistas, son referenciales, pero mantenga las funcionalidades.
+El proyecto tiene 3 vistas: lista de testimonios, formulario para agregar testimonio y detalle de testimonio.
+Siéntase en libertad de modificar las vistas, estas son referenciales.
 
 ### 1.- Listado
+- Un grid de usuarios con su foto, nombre, cargo.
 
 ![image](https://user-images.githubusercontent.com/29830848/147611849-369d7e32-2d6f-40c1-9114-6a63758e2bea.png)
 
 ### 2.- Detalle
 
 - Puede ser una vista aparte o un modal en la misma vista
-- Las redes sociales pueden ser cualquier link, nuestra api guarda esos datos.
 
 ![image](https://user-images.githubusercontent.com/29830848/147611935-c7d5bb2e-81c3-4656-afa5-20729aca49e2.png)
 
 ### 3.- Agregar testimonio
 
-Aquí el avatar tiene un preview de la url de la imagen.
+- Aquí el avatar tiene un preview de la url ingresada.
 
 ![image](https://user-images.githubusercontent.com/29830848/147612020-558a10b6-2f1a-4341-b500-2633bbe31ef2.png)
 
@@ -49,13 +48,14 @@ Aquí el avatar tiene un preview de la url de la imagen.
 
 Estos puntos pueden sumar puntos pero no son obligatorios
 
+- Usar un linter.
+- Si desea usar css puro o algún preprocesador lo valoraremos.
 - Animaciones
-- El proyecto es muy pequeño, pero si puede aplicar algún patrón de diseño sería genial.
-- Usar algun linter.
-- Eliminar testimonio, no está plasmado en el wireframe pero existe la api y desea agregarlo nos gustaría saber donde considera que debería ir.
+- Eliminar testimonio, no está plasmado en el wireframe pero existe la api en postman y si  desea agregarlo nos gustaría saber donde consideraría que debe ir.
 
-## Entregable o Expectativa del reto
+## Entregable
 
-- El reto tiene una duración de 72hrs (3 días) desde el momento que se recibe
+- Tiene una duración de máximo 5 días desde el momento que se le envía el reto.
+- Debera desplegar el proyecto en algún servicio de hosting gratuito como [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/) o [Render](https://www.render.com/).
 - Al finalizar el reto, enviar el repositorio a emmanuel.barturen@talently.tech con copia a cristian@talently.tech y
-  dilver@talently.tech con título "Reto Frontend- Talently 2021-12"
+  dilver@talently.tech con título "Reto Frontend - Talently 2023"
